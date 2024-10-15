@@ -274,12 +274,3 @@ cmd({
         reply("🚩 Not Found !");
     }
 });
-
-// Command for searching YouTube
-cmd({
-    pattern: "yts",
-    alias: ["ytsearch"],
-    use: '.yts <query>',
-    react: "🔎",
-    desc: 'Search videos from YouTube',
-    category
