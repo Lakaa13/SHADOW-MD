@@ -44,8 +44,12 @@ cmd({
 > *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 > *Runtime:* ${runtime(process.uptime())}
 > *Platform:* ${hostname}
-    
-*🚀 WELCOM TO SHADOW MD 🚀*`
+
+🚀 WELCOM TO SHADOW MD 🚀*
+
+*❯ Welcome Shado md whats app bot you can download video songs and various videos through this bot. Shado md owner is Lakshan Damayantha.. It also gives you the ability to solve the new revolution in technology and technology problems and there is great potential here. This technology is also related to AI.*
+`    
+
 
             let buttons = [{
                     name: "cta_url",
@@ -130,6 +134,7 @@ ${monspace}👋 Hello ${pushname}${monspace}
  *⌛𝙈𝙀𝙈𝙊𝙍𝙔:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
  *📍𝙋𝙇𝘼𝙏𝙁𝙊𝙍𝙈:* ${hostname}
  *⏰𝗥𝗨𝗡𝗧𝗜𝗠𝗘:* ${runtime(process.uptime())}
+ 💭 ➤ New version shadow md is very smart and developed with technical technology and java script, the owner takes care to update it from year to year to help the users to get various benefits We apologize if there are any problems with Shado md is, owner Lakshan damayantha 🚀💗👨‍🚀*
 `
             const categories = [];
         const categoryMap = new Map();
