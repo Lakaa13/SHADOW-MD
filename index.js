@@ -42,14 +42,14 @@ const msgRetryCounterCache = new NodeCache()
 const prefix = '.'
 const ownerNumber = ['94767910958']
 //===================SESSION============================
-if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
-    if (config.SESSION_ID) {
-      const sessdata = config.SESSION_ID.replace("SHADOW=", "")
-      const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
-      filer.download((err, data) => {
-        if (err) throw err
-        fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-          console.log("Session download completed !!")
+if(!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
+if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
+const sessdata = config.SESSION_ID
+const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
+filer.download((err, data) => {
+if(err) throw err
+fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
+console.log("Session downloaded ✅")
         })
       })
     }
