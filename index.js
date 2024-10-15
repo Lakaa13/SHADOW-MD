@@ -157,8 +157,11 @@ async function connectToWA() {
                     quoted: mek
                 })
             }
-
-            
+            const ownerdata = (await axios.get('https://raw.githubusercontent.com/Shadowteach/shadow-raw/refs/heads/main/raw.json')).data
+            config.LOGO = ownerdata.imageurl
+            config.BTN = ownerdata.button
+            config.FOOTER = ownerdata.footer
+            config.BTNURL = ownerdata.buttonurl
             conn.edit = async (mek, newmg) => {
                 await conn.relayMessage(from, {
                     protocolMessage: {
