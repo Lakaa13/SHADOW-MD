@@ -6,12 +6,8 @@ function convertToBool(text, fault = 'true') {
 module.exports = {
 SESSION_ID: process.env.SESSION_ID === undefined ? ' ' : process.env.SESSION_ID,
 BTN: "FOLLOW US :)",
-FOOTER: "*ᴘᴏᴡᴇʀᴅ ʙʏ ᴅᴀʀᴋꜱᴀᴅᴀꜱ*",
-
-
-
+FOOTER: "*ꜱʜᴀᴅᴏᴡ-ᴍᴅ-ᴠᴇʀꜱɪᴏɴ 6➤*",
 ONLY_GROUP: process.env.ONLY_GROUP === undefined ? 'true' : process.env.ONLY_GROUP,
-
 MAX_SIZE: 200,
 
 };
