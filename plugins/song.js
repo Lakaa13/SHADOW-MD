@@ -16,7 +16,7 @@ cmd({
     desc: "Search & download yt song.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, prefix, isCmd, command, args, q }) => {
+}, async (conn, mek, m, { from, quoted, reply, body, prefix, isCmd, command, args, q }) => {
     try {
         if (!q) return reply("Please provide a song name.");
         
@@ -148,7 +148,7 @@ cmd({
     desc: "Download video from YouTube.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, reply, prefix, isCmd, command, args, q }) => {
+}, async (conn, mek, m, { from, quoted, reply, body, prefix, isCmd, command, args, q }) => {
     try {
         if (!q) return reply("Please provide a URL or title.");
         
