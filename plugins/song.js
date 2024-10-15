@@ -54,14 +54,14 @@ cmd({
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    display_text: "Audio🎧",
+                    display_text: "Audio",
                     id: `${prefix}audsong ${data.url}`
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    display_text: "Document📁",
+                    display_text: "Document",
                     id: `${prefix}dosong ${data.url}`
                 })
             }
@@ -192,10 +192,10 @@ cmd({
                     title: 'Tap Here!',
                     sections: [{
                         rows: [{
-                            title: 'VIDEO🎥',
+                            title: 'VIDEO',
                             id: `${prefix}vvideo ${data.url}`
                         }, {
-                            title: 'DOCUMENT📁',
+                            title: 'DOCUMENT',
                             id: `${prefix}ddocument ${data.url}`
                         }]
                     }]
