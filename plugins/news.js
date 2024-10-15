@@ -49,7 +49,7 @@ let buttons = [{
             body: MNG
          }
                     
-    await conn.sendButtonMessage(from, buttons, m, opts)
+       return await conn.sendButtonMessage(from, buttons, m, opts)
         } catch (e) {
             reply('*Error !!*')
             console.log(e)
