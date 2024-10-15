@@ -40,7 +40,6 @@ let buttons = [{
                         id: ".hiru"
                 }),
             },
-    },
     ]
         let opts = {
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
