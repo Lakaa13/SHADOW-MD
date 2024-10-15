@@ -49,11 +49,8 @@ if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
       filer.download((err, data) => {
         if (err) throw err
         fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-          console.log("Session download completed !!")
-        })
-      })
-    }
-  }
+        console.log("Session download completed !!")
+        })})}
 // <<==========PORTS===========>>
 const express = require("express");
 const app = express();
