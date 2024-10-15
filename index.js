@@ -16,7 +16,6 @@ const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const NodeCache = require('node-cache')
 const util = require('util')
-
 const {
     getBuffer,
     getGroupAdmins,
@@ -39,19 +38,13 @@ const {
     File
 } = require('megajs')
 const path = require('path')
-
 const msgRetryCounterCache = new NodeCache()
-
-const ownerNumber = config.OWNER;
-
-
-
-
-
+const prefix = '.'
+const ownerNumber = ['94725881990']
 //===================SESSION============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
     if (config.SESSION_ID) {
-      const sessdata = config.SESSION_ID.replace("BLACK-PANTHER=", "")
+      const sessdata = config.SESSION_ID.replace("NEBULA=", "")
       const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
       filer.download((err, data) => {
         if (err) throw err
@@ -108,10 +101,8 @@ async function connectToWA() {
                 }
             });
             console.log('Plugins installed ✅')
-
-            
             console.log('Bot connected ✅')
-            await conn.sendMessage("947214750816@s.whatsapp.net", {
+            await conn.sendMessage("1@s.whatsapp.net", {
                 text: "Connected to whatsapp"
             })
         }
@@ -131,7 +122,6 @@ async function connectToWA() {
             const from = mek.key.remoteJid
             const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
             const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
-             const prefix = config.PREFIX;
             const isCmd = body.startsWith(prefix)
             const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : ''
             const args = body.trim().split(/ +/).slice(1)
@@ -141,21 +131,17 @@ async function connectToWA() {
             const senderNumber = sender.split('@')[0]
             const botNumber = conn.user.id.split(':')[0]
             const pushname = mek.pushName || 'Sin Nombre'
-            const developers = '94778500326'
+            const developers = '94762898541'
             const isbot = botNumber.includes(senderNumber)
             const isdev = developers.includes(senderNumber)
             const isMe = isbot ? isbot : isdev
-            const sadas = '94787318729'
-const isSadas = sadas?.includes(senderNumber)
- const isOwner = ownerNumber.includes(senderNumber) || isMe
-            const botNumber2 = await jidNormalizedUser(conn.user.id); 
+            const isOwner = ownerNumber.includes(senderNumber) || isMe
+            const botNumber2 = await jidNormalizedUser(conn.user.id);
             const groupMetadata = isGroup ? await conn.groupMetadata(from).catch(e => {}) : ''
             const groupName = isGroup ? groupMetadata.subject : ''
             const participants = isGroup ? await groupMetadata.participants : ''
             const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
             const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
-            const isreaction = m.message.reactionMessage ? true : false
-
             const isAdmins = isGroup ? groupAdmins.includes(sender) : false
             const isAnti = (teks) => {
                 let getdata = teks
@@ -171,8 +157,6 @@ const isSadas = sadas?.includes(senderNumber)
                     quoted: mek
                 })
             }
-
-                
 
             
             conn.edit = async (mek, newmg) => {
@@ -246,76 +230,6 @@ const isSadas = sadas?.includes(senderNumber)
                     })
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ==================== owner reacts ======================== 
-
-        if(isdev){
-        if(!isreaction){
-           // await conn.sendMessage(from, { react: { text: '🥹', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '😉', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '😼', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '😸', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '🐲', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '🐦', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '🔥', key: mek.key } });
-           // await conn.sendMessage(from, { react: { text: '💗', key: mek.key } });
-            //await conn.sendMessage(from, { react: { text: '🖤', key: mek.key } });
-            //await conn.sendMessage(from, { react: { text: '💛', key: mek.key } });
-     await conn.sendMessage(from, { react: { text: '🦹‍♂️', key: mek.key } });
-    
-        }
-    
-    }
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
-
-
-
-
-    //===============MASSAGE READ==========================
-
-if (body[1] && body[1] == " ") body = body[0] + body.slice(2);
-   if (!isCmd&& !isGroup&&    config.AUTO_READ == 'true') return
-   await conn.readMessages([mek.key])
-
-//==================ONLY GROUP===============================
-
- if (config.ONLY_GROUP && !isMe && !isGroup) return
-
-
-
-
-
-
-
-
-
-
-
-    
-//>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<>>>>>>>>>><><><><><><>><><><><><><><><
-
-
             conn.sendButtonMessage = async (jid, buttons, quoted, opts = {}) => {
 
                 let header;
@@ -354,7 +268,7 @@ if (body[1] && body[1] == " ") body = body[0] + body.slice(2);
                                 },
                                 footer: {
                                     text: opts && opts.footer ? opts.footer : ''
-                     },
+                                },
                                 header: header,
                                 nativeFlowMessage: {
                                     buttons: buttons,
@@ -366,12 +280,11 @@ if (body[1] && body[1] == " ") body = body[0] + body.slice(2);
                 }, {
                     quoted: quoted
                 })
-                //await conn.sendPresenceUpdate('composing', jid)
+                await conn.sendPresenceUpdate('composing', jid)
                 return await conn.relayMessage(jid, message["message"], {
                     messageId: message.key.id
                 })
             }
-
             //==================================plugin map================================
             const events = require('./command')
             const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
@@ -548,9 +461,9 @@ if (body[1] && body[1] == " ") body = body[0] + body.slice(2);
     })
 }
 app.get("/", (req, res) => {
-    res.send("📟 black panther working");
+    res.send("📟 Nebula Working successfully!");
 });
-app.listen(port, () => console.log(`panther Server listening on port http://localhost:${port}`));
+app.listen(port, () => console.log(`Nebula Server listening on port http://localhost:${port}`));
 setTimeout(async () => {
     await connectToWA()
 }, 1000);
