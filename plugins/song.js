@@ -29,7 +29,7 @@ cmd({
         const down = await fg.yta(url);
         const downloadUrl = down.dl_url;
 
-        const msg =  = `\`❮❮ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❯❯\`
+        const msg = `\`❮❮ 𝗦𝗢𝗡𝗚 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❯❯\`
 
 > *\`➤ Title\` :* ${result.title}
 
@@ -164,7 +164,7 @@ cmd({
         const down = await fg.yta(url);
         const downloadUrl = down.dl_url;
 
-        const msg =  = `\`❮❮ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❯❯\`
+        const msg = `\`❮❮ 𝗩𝗜𝗗𝗘𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥 ❯❯\`
 
 > *\`➤ Title\` :* ${result.title}
 
