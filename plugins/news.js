@@ -60,9 +60,9 @@ let buttons = [{
                      // description: `X`,
                      id: ".lankadeepa"
 		}, {
-                     title: 'SIRASA NEWS',
+                     title: 'BBC NEWS',
                      // description: `X`,
-                     id: ".sirasa"
+                     id: ".bbc"
 		  }]
                }]
             })
