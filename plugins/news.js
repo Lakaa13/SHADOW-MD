@@ -58,8 +58,8 @@ const msg = `
         let opts = {
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
             header: '',
-            footer: '',
-            body: MNG
+            footer: config.FOOTER,
+            body: sssf
         }
 
         return await conn.sendButtonMessage(from, buttons, m, opts)
