@@ -16,8 +16,9 @@ cmd({
     desc: "Search & download yt song.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, prefix, isCmd, command, args, q }) => {
-    try {
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{ 
         if (!q) return reply("Please provide a song name.");
         
         const search = await yts(q);
@@ -147,8 +148,9 @@ cmd({
     desc: "Download video from YouTube.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, reply, prefix, isCmd, command, args, q }) => {
-    try {
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{ 
         if (!q) return reply("Please provide a URL or title.");
         
         const search = await yts(q);
