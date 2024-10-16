@@ -87,7 +87,7 @@ cmd({
     desc: "Download audio from YouTube.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a song URL.");
         
@@ -116,7 +116,7 @@ cmd({
     desc: "Download song as document.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a song URL.");
         
@@ -147,7 +147,7 @@ cmd({
     desc: "Download video from YouTube.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a URL or title.");
         
@@ -215,7 +215,7 @@ cmd({
     desc: "Download video from YouTube.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a URL or title.");
         
@@ -242,7 +242,7 @@ cmd({
     desc: "Download video as document.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a URL or title.");
         
