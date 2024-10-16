@@ -24,7 +24,7 @@ try{
 
 const news = await fetchJson(`${apilink}/lankadeepa`)
   
-const msg = `
+const status = `
            *💭SHADOW-MD-LANKADEPA-NEWS.LK💭*
 
        
@@ -75,7 +75,7 @@ try{
 
 const news = await fetchJson(`${apilink}/bbc`)
   
-const msg = `
+const status = `
            *💭SHADOW-MD-BBC-NEWS.LK💭*
 
        
