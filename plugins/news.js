@@ -66,7 +66,7 @@ let buttons = [{
 	
 
         let message = {
-            image: mov.result.cover,
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
             header: '',
             footer: config.FOOTER,
             body: status
