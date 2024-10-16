@@ -21,7 +21,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
     try {
         if (!q || !q.startsWith("https://")) return await reply("Please provide a valid Tiktok video URL❗");
         const data = await fetchJson(`${baseUrl}/api/tiktokdl?url=${q}`);
-        let desc = ` *❮❮❮ 𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗧𝗜𝗞 𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥 ❯❯❯*`
+        let msg = ` *❮❮❮ 𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗧𝗜𝗞 𝗧𝗢𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗗𝗘𝗥 ❯❯❯*`
 
 
                 let msg = [{
