@@ -9,7 +9,7 @@ const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO 
 // ================================HIRU NEWS========================================
 
 cmd({
-    pattern: "news",
+    pattern: "hirunews",
     alias: ["hiru","news1"],
     react: "💭",
     desc: "",
