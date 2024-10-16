@@ -185,7 +185,7 @@ ${monspace}👋 Hello ${pushname}${monspace}
                         rows: rows
                     }]
                 }),
-            }
+            },
 		{
 name: "quick_reply",
 buttonParamsJson: JSON.stringify({
