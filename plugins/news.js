@@ -23,8 +23,8 @@ try{
 const news = await fetchJson(`${apilink}/hiru`)
   
 const status = `
-           💭SHADOW-MD-HIRU-NEWS.LK💭
-
+           *💭SHADOW-MD-HIRU-NEWS.LK💭*
+𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗧𝗛𝗘 𝗙𝗨𝗟𝗟 𝗔𝗖𝗖𝗦𝗘𝗦 𝗡𝗘𝗪𝗦 𝗜𝗡 𝗛𝗜𝗥𝗨 𝗡𝗘𝗪𝗦 ➤
        
 ➤ *Title* - ${news.result.title}
 
@@ -97,7 +97,7 @@ try{
 const news = await fetchJson(`${apilink}/sirasa`)
   
 const status = `
-           💭SHADOW-MD-SIRASA-NEWS.LK💭
+           *💭SHADOW-MD-SIRASA-NEWS.LK💭*
 
        
 ➤ *Title* - ${news.result.title}
@@ -133,7 +133,7 @@ id: ".menu"
 cmd({
     pattern: "derananews",
     alias: ["derana","news3"],
-    react: "📍",
+    react: "💭",
     desc: "",
     category: "news",
     use: '.derana',
@@ -145,7 +145,7 @@ try{
 const news = await fetchJson(`${apilink}/derana`)
   
 const status = `
-            💭SHADOW-MD-SIRASA-NEWS.LK💭
+            *💭SHADOW-MD-SIRASA-NEWS.LK💭*
 
        
 ➤ *Title* - ${news.result.title}
@@ -192,7 +192,7 @@ try{
 const news = await fetchJson(`${apilink}/sirasa`)
   
 const status = `
-           💭SHADOW-MD-SIRASA-NEWS.LK💭
+           *💭SHADOW-MD-SIRASA-NEWS.LK💭*
 
        
 ➤ *Title* - ${news.result.title}
