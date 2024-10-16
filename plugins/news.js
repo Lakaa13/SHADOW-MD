@@ -17,7 +17,7 @@ cmd({
     use: '.hirunews',
     filename: __filename
 },
-async(conn, mek, m,{from, quoted }) => {
+async(conn, mek, m,{from, quoted, reply}) => {
 try{
 
 const news = await fetchJson(`${apilink}/hiru`)
