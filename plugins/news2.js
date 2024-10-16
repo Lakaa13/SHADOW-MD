@@ -35,13 +35,28 @@ const msg = `
 ➤ *Date* - ${news.result.date}
 
 ➤ *Link* - ${news.result.url}`
-
-
-await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
-} catch (e) {
-console.log(e)
-reply(e)
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Get Menu',
+id: ".menu"
+}),
 }
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "SHADOW-MD-NEWS.LK",
+            footer: config.FOOTER,
+            body: status
+        }
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
 })
 
 // ================================BBC NEWS========================================
@@ -69,11 +84,26 @@ const msg = `
 ➤ *News* - ${news.result.desc}
 
 ➤ *Link* - ${news.result.url} `
-
-
-await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
-} catch (e) {
-console.log(e)
-reply(e)
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Get Menu',
+id: ".menu"
+}),
 }
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "SHADOW-MD-NEWS.LK",
+            footer: config.FOOTER,
+            body: status
+        }
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
 })
