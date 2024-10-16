@@ -31,7 +31,52 @@ const status = `
 ➤ *News* - ${news.result.desc}
 
 ➤ *Link* - ${news.result.url}`
+let buttons = [{
+                    name: "cta_url",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: config.BTN,
+                        url: config.BTNURL,
+                        merchant_url: config.BTNURL
+                    }),
+                },
+                { name: 'single_select',
+            buttonParamsJson: JSON.stringify({
+               title: 'Tap Here!',
+               sections: [{
+                  rows: [{
+                     title: 'HIRU NEWS',
+                     // description: `X`,
+                     id: prefix + `ttdl ${mov.result.play}`
+                  }, {
+                     title: 'SIRASA NEWS',
+                     // description: `X`,
+                     id: prefix + `ttdl ${mov.result.wmplay}`
+                  }, {
+                     title: 'DERANA NEWS',
+                     // description: `X`,
+                     id: prefix + `tikmp3 ${mov.result.music}`
+                  }, {
+                     title: 'SIRASA NEWS',
+                     // description: `X`,
+                     id: prefix + `tikmp3 ${mov.result.music_info.play}`
+		  }]
+               }]
+            })
+         }]
+	
 
+        let message = {
+            image: mov.result.cover,
+            header: '',
+            footer: config.FOOTER,
+            body: status
+        }   
+return conn.sendButtonMessage(from, buttons, m, message)
+} catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
 //========sirasanews==========
 cmd({
     pattern: "sirasanews",
