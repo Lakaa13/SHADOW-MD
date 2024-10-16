@@ -32,27 +32,66 @@ const msg = `
 
 ➤ *Link* - ${news.result.url}`
 
-let buttons = [{
-            
-                name: "NEWS",
-                buttonParamsJson: JSON.stringify({
-                    display_text: "NEWS",
-                    id: ".hiru"
+
+        let buttons = [{
+                name: "cta_url",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: '',
+                        url: 'https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R',
+                        merchant_url: 'https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R'
                 }),
             },
-  {
-    }
-            ]
-            let message = {
-                image: '',
-                header: '',
-                footer: config.FOOTER,
-                body: msg
-
+            {
+                name: "single_select",
+                buttonParamsJson: JSON.stringify({
+                    title: 'NEWS MENU',
+                    sections: [{
+                        title: 'Please select a SubMenu',
+                        highlight_label: 'ꜱʜᴀᴅᴏᴡ-ᴍᴅ',
+                        rows: rows
+                    }]
+                }),
             }
-            return await conn.sendButtonMessage(from, buttons, m, message)
-        } catch (e) {
-            console.log(e)
-            reply('*Error !!*')
+        ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: '',
+            footer: wm,
+            body: MNG
         }
-    });
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
+
+        //await conn.sendMessage(from, { text: commandList }, { quoted: mek });
+        await conn.sendMessage(from, {
+text: commandList,
+  contextInfo: {
+    mentionedJid: [ '' ],
+    groupMentions: [],
+    forwardingScore: 1111,
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363290448968237@newsletter',
+      serverMessageId: 127
+    },
+externalAdReply: { 
+title: 'ꜱʜᴀᴅᴏᴡ ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ⚟',
+body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
+mediaType: 1,
+sourceUrl: "https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R" ,
+thumbnailUrl: `https://i.imgur.com/2p7gHUD.jpeg` ,
+renderLargerThumbnail: true,
+showAdAttribution: false
+}
+}}, { quoted: mek})
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
