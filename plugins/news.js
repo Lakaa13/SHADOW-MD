@@ -67,7 +67,7 @@ let buttons = [{
 
         let message = {
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
-            header: '',
+            header: 'NEWS',
             footer: config.FOOTER,
             body: status
         }   
