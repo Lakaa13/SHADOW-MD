@@ -186,6 +186,14 @@ ${monspace}👋 Hello ${pushname}${monspace}
                     }]
                 }),
             }
+		{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Get Menu',
+id: ".menu"
+}),
+	}
+	    
         ]
 
         let opts = {
