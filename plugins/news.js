@@ -38,7 +38,7 @@ const msg = `
 name: "quick_reply",
 buttonParamsJson: JSON.stringify({
 display_text: 'Hiru News',
-id: `${prefix}hiru`
+id: ".hiru"
 }),
 }
                     
