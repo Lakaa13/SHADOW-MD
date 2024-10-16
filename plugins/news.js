@@ -56,9 +56,9 @@ let buttons = [{
                      // description: `X`,
                      id: ".derana"
                   }, {
-                     title: 'SIRASA NEWS',
+                     title: 'LANKADEPA NEWS',
                      // description: `X`,
-                     id: ".sirasa"
+                     id: ".lankadeepa"
 		}, {
                      title: 'SIRASA NEWS',
                      // description: `X`,
