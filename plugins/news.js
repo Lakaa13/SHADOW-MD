@@ -51,7 +51,7 @@ const msg = `
                     id: ".hiru"
                 }),
             },
-                       {
+                       
             }
         ]
 
