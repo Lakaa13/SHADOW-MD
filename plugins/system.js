@@ -37,6 +37,33 @@ id: ".ping"
             footer: config.FOOTER,
             body: status
         }
+ //await conn.sendMessage(from, { text: commandList }, { quoted: mek });
+        await conn.sendMessage(from, {
+text: commandList,
+  contextInfo: {
+    mentionedJid: [ '' ],
+    groupMentions: [],
+    forwardingScore: 1111,
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363316527550485@newsletter',
+      serverMessageId: 127
+    },
+externalAdReply: { 
+title: 'ꜱʜᴀᴅᴏᴡ ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ⚟',
+body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
+mediaType: 1,
+sourceUrl: "https://whatsapp.com/channel/0029Vajn0gb8F2pFh7PDqO0c" ,
+thumbnailUrl: `https://i.imgur.com/2p7gHUD.jpeg` ,
+renderLargerThumbnail: true,
+showAdAttribution: false
+}
+}}, { quoted: mek})
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
 
         return await conn.sendButtonMessage(from, buttons, m, opts)
     } catch (e) {
