@@ -414,6 +414,34 @@ async (conn, mek, m, {
 });
 
 
+cmd({
+    pattern: "kickall",
+    react: "🔖",
+    desc: "To kick all members in one time",
+    category: "group",
+    use: '.kickall',
+    filename: __filename
+},
+async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{   
+if (!isGroup) return reply(ONLGROUP)
+if (!isAdmins) return reply(ADMIN)	
+for (let mem of participants) {
+                      
+                      await sleep(1000)
+                      if(mem.id == botNumber+'@s.whatsapp.net') return
+                      if(mem.id == owner+'@s.whatsapp.net') return
+                      await conn.groupParticipantsUpdate(from, [mem.id], 'remove')
+                      await conn.sendText(from,`*${mem.id.split('@')[0]} Kick out !!!*`)
+                                  }
+await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
+} catch (e) {
+reply('*Error !!*')
+l(e)
+}
+}) 		    	
+
+
 //unlock group
 
 cmd({
