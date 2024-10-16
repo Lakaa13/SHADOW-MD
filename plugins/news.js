@@ -51,6 +51,14 @@ const msg = `
                         rows: rows
                     }]
                 }),
+                
+                name: "hiru",
+                buttonParamsJson: JSON.stringify({
+                    display_text: "hiru",
+                    id: ".hiru"
+                }),
+            },
+                       {
             }
         ]
 
