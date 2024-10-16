@@ -58,7 +58,7 @@ const msg = `
         let opts = {
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
             header: '',
-            footer: wm,
+            footer: '',
             body: MNG
         }
 
