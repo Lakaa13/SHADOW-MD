@@ -32,25 +32,15 @@ const msg = `
 
 ➤ *Link* - ${news.result.url}`
 
-
         let buttons = [{
-                
-                name: "single_select",
-                buttonParamsJson: JSON.stringify({
-                    title: 'NEWS MENU',
-                    sections: [{
-                        title: 'Please select a SubMenu',
-                        highlight_label: 'ꜱʜᴀᴅᴏᴡ-ᴍᴅ',
-                        rows:[]
-                    }]
-                }),
-                
+            
                 name: "hiru",
                 buttonParamsJson: JSON.stringify({
                     display_text: "hiru",
                     id: ".hiru"
                 }),
             },
+                       {
                        
             }
         ]
