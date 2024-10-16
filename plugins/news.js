@@ -31,3 +31,28 @@ const msg = `
 ➤ *News* - ${news.result.desc}
 
 ➤ *Link* - ${news.result.url}`
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'SHADOW NEWS',
+id: ".hiru"
+}),
+}
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "shadow md news",
+            footer: config.FOOTER,
+            body: status
+        }
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
+
+
