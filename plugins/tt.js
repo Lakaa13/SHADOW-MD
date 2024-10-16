@@ -71,6 +71,7 @@ cmd({
     async (conn, mek, m, { from, q, reply }) => {
         try {
             if (!q) return await reply('*Not Found!*')
+            const data = await fetchJson(`${baseUrl}/api/tiktokdl?url=${q}`);
 
             await conn.sendMessage(from, { video: { url: q } }, { quoted: mek })
             await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
