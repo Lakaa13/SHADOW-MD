@@ -13,7 +13,7 @@ const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO 
 cmd({
     pattern: "lankadeepanews",
     alias: ["lankadeepa","news4"],
-    react: "🕵️‍♂️",
+    react: "💭",
     desc: "",
     category: "news",
     use: '.lankadeepanews',
@@ -25,16 +25,16 @@ try{
 const news = await fetchJson(`${apilink}/lankadeepa`)
   
 const msg = `
-           🕵️‍♂️ *LANKADEEPA NEWS* 🕵️‍♂️
+           *💭SHADOW-MD-LANKADEPA-NEWS.LK💭*
 
        
-• *Title* - ${news.result.title}
+➤ *Title* - ${news.result.title}
 
-• *News* - ${news.result.desc}
+➤ *News* - ${news.result.desc}
 
-• *Date* - ${news.result.date}
+➤ *Date* - ${news.result.date}
 
-• *Link* - ${news.result.url}`
+➤ *Link* - ${news.result.url}`
 
 
 await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
@@ -49,7 +49,7 @@ reply(e)
 cmd({
     pattern: "bbcnews",
     alias: ["bbc","news5"],
-    react: "⛩",
+    react: "💭",
     desc: "",
     category: "news",
     use: '.bbcnews',
@@ -61,14 +61,14 @@ try{
 const news = await fetchJson(`${apilink}/bbc`)
   
 const msg = `
-           ⛩ *BBC NEWS* ⛩
+           *💭SHADOW-MD-BBC-NEWS.LK💭*
 
        
-• *Title* - ${news.result.title}
+➤ *Title* - ${news.result.title}
 
-• *News* - ${news.result.desc}
+➤ *News* - ${news.result.desc}
 
-• *Link* - ${news.result.url} `
+➤ *Link* - ${news.result.url} `
 
 
 await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
