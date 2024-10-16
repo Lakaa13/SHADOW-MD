@@ -731,8 +731,8 @@ cmd({
 },
 async(conn, mek, m,{from, prefix, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{   
-if (!isGroup) return reply(ONLGROUP ONLY)
-if (!isAdmins) return reply(ADMIN ONLY Command )	
+if (!isGroup) return reply(GROUP ONLY)
+if (!isAdmins) return reply(ADMIN ONLY)	
 for (let mem of participants) {
                       
                       await sleep(1000)
