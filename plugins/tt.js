@@ -55,7 +55,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
                 }
                 return conn.sendButtonMessage(from, buttons, m, message)
-              {).catch((err) => {
+              { catch((err) => {
                 console.log(err)
             })
     });
