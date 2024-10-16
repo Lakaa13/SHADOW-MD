@@ -34,12 +34,13 @@ const msg = `
 
         let buttons = [{
             
-                name: "hiru",
-                buttonParamsJson: JSON.stringify({
-                    display_text: "hiru",
-                    id: ".hiru"
-                }),
-            },
+                {
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Hiru News',
+id: `.hiru`
+})
+},
                        {
                        
             }
