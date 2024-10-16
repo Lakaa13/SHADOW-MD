@@ -55,7 +55,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
                 }
                 return conn.sendButtonMessage(from, buttons, m, message)
-            }).catch((err) => {
+              {).catch((err) => {
                 console.log(err)
             })
     });
@@ -76,7 +76,7 @@ cmd({
             await conn.sendMessage(from, { video: { url: q } }, { quoted: mek })
             await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
 
-            { catch (e) {
+            } catch (e) {
             reply('*Error !!*')
             console.log(e)
         }
