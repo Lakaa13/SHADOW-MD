@@ -31,29 +31,3 @@ const msg = `
 ➤ *News* - ${news.result.desc}
 
 ➤ *Link* - ${news.result.url}`
-
-        let buttons = [{
-            
-    
-name: "quick_reply",
-buttonParamsJson: JSON.stringify({
-display_text: 'Hiru News',
-id: ".hiru"
-}),
-}
-                    
-        ]
-
-        let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
-            header: '',
-            footer: config.FOOTER,
-            body:[]
-        }
-
-        return await conn.sendButtonMessage(from, buttons, m, opts)
-    } catch (e) {
-        reply('*Error !!*')
-        console.log(e)
-    }
-})
