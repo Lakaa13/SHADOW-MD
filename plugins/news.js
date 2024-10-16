@@ -9,7 +9,7 @@ const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO 
 // ================================HIRU NEWS========================================
 
 cmd({
-    pattern: "hirunews",
+    pattern: "news",
     alias: ["hiru","news1"],
     react: "💭",
     desc: "",
@@ -46,19 +46,19 @@ let buttons = [{
                   rows: [{
                      title: 'HIRU NEWS',
                      // description: `X`,
-                     id: prefix + `ttdl ${mov.result.play}`
+                     id: ".hiru"
                   }, {
                      title: 'SIRASA NEWS',
                      // description: `X`,
-                     id: prefix + `ttdl ${mov.result.wmplay}`
+                     id: ".sirasa"
                   }, {
                      title: 'DERANA NEWS',
                      // description: `X`,
-                     id: prefix + `tikmp3 ${mov.result.music}`
+                     id: ".derana"
                   }, {
                      title: 'SIRASA NEWS',
                      // description: `X`,
-                     id: prefix + `tikmp3 ${mov.result.music_info.play}`
+                     id: ".sirasa"
 		  }]
                }]
             })
