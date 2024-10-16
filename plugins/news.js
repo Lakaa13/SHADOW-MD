@@ -48,7 +48,7 @@ const msg = `
                     sections: [{
                         title: 'Please select a SubMenu',
                         highlight_label: 'ꜱʜᴀᴅᴏᴡ-ᴍᴅ',
-                        var rows = [];
+                        rows = [];
                     }]
                 }),
                 
