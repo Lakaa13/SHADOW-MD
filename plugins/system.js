@@ -33,7 +33,7 @@ id: ".ping"
 
         let opts = {
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
-            header: "hi",
+            header: "SYSTEM CHECK",
             footer: config.FOOTER,
             body: status
         }
