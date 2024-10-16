@@ -235,7 +235,7 @@ text: commandList,
     forwardingScore: 1111,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363290448968237@newsletter',
+      newsletterJid: '120363316527550485@newsletter',
       serverMessageId: 127
     },
 externalAdReply: { 
