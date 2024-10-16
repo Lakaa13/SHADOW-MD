@@ -74,6 +74,11 @@ cmd({
                 body: sssf
 
             }
+	await conn.sendMessage(from, {
+            audio: { url: 'https://github.com/Shadowteach/shadow-raw/raw/refs/heads/main/BUTTON%20ALIVE.mp3' },
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
             return await conn.sendButtonMessage(from, buttons, m, opts)
         } catch (e) {
             reply('*Error !!*')
@@ -190,7 +195,12 @@ ${monspace}👋 Hello ${pushname}${monspace}
             body: MNG
         }
 
-        return await conn.sendButtonMessage(from, buttons, m, opts)
+       await conn.sendMessage(from, {
+            audio: { url: 'https://github.com/Shadowteach/shadow-raw/raw/refs/heads/main/NEW%20BUTTONS%20MENU%20.mp3' },
+            mimetype: 'audio/mp4',
+            ptt: true
+        }, { quoted: mek });
+	return await conn.sendButtonMessage(from, buttons, m, opts)
     } catch (e) {
         reply('*Error !!*')
         console.log(e)
