@@ -7,7 +7,7 @@ let needus = "*Please give me a tiktok url!*"
 cmd({
     pattern: "tiktok",    
     alias: ["tt","ttdl","tiktokdl"],
-    react: '🌀',
+    react: '📁',
     desc: "Download tiktok videos",
     category: "download",
     use: '.tiktok < tiktok url >',
@@ -23,7 +23,7 @@ try{
 
 const mov = await fetchJson(`https://api.fgmods.xyz/api/downloader/tiktok?url=${q}&apikey=mnp3grlZ`)
     
-let yt = `乂 *T I K T O K - D O W N L O A D E R*
+let yt = `➤ *T I K T O K - D O W N L O A D E R*
 
     *◦ Title:* ${mov.result.title}
       
@@ -88,7 +88,7 @@ reply(`${e}`)
 cmd({
     pattern: "ttdl",
     alias: ["tiktokdl"],
-    react: '💫',
+    react: '📁',
     dontAddCommandList: true,
     use: '.tt1 <tiktok link>',
     filename: __filename
@@ -109,7 +109,7 @@ console.log(e)
 cmd({
     pattern: "tikmp3",
     alias: ["tiktokmp3"],
-    react: '💫',
+    react: '📁',
     dontAddCommandList: true,
     filename: __filename
 },
