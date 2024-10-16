@@ -76,7 +76,7 @@ cmd({
             await conn.sendMessage(from, { video: { url: q } }, { quoted: mek })
             await conn.sendMessage(from, { react: { text: '✅', key: mek.key } })
 
-        } catch (e) {
+            { catch (e) {
             reply('*Error !!*')
             console.log(e)
         }
