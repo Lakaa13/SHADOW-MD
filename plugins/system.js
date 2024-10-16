@@ -37,8 +37,14 @@ id: ".ping"
             footer: config.FOOTER,
             body: status
         }
+return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
  //await conn.sendMessage(from, { text: commandList }, { quoted: mek });
-        await conn.sendMessage(from, {
+ await conn.sendMessage(from, {
 text: commandList,
   contextInfo: {
     mentionedJid: [ '' ],
@@ -59,13 +65,6 @@ renderLargerThumbnail: true,
 showAdAttribution: false
 }
 }}, { quoted: mek})
-    } catch (e) {
-        reply('*Error !!*')
-        console.log(e)
-    }
-})
-
-        return await conn.sendButtonMessage(from, buttons, m, opts)
     } catch (e) {
         reply('*Error !!*')
         console.log(e)
