@@ -21,3 +21,28 @@ let status = `┌─────────────────────
 
 *❯❯❯ ꜱʜᴀᴅᴏᴡ-ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ➣*
 `
+let buttons = [{
+            
+    
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'BOT PING',
+id: ".ping"
+}),
+}
+                    
+        ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: '',
+            footer: config.FOOTER,
+            body:[]
+        }
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
