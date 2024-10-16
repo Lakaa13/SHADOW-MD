@@ -59,7 +59,7 @@ const msg = `
             image: `https://i.imgur.com/NAK3YWD.jpeg`,
             header: '',
             footer: config.FOOTER,
-            body: sssf
+            body:[]
         }
 
         return await conn.sendButtonMessage(from, buttons, m, opts)
