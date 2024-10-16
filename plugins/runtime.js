@@ -14,3 +14,25 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{ 
 
 let status =` *🚀 Runtime:-  ${runtime(process.uptime())}* `
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'BOT SYSTEM',
+id: ".system"
+}),
+}
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "RUNTIME TEST",
+            footer: config.FOOTER,
+            body: status
+        }
+return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
