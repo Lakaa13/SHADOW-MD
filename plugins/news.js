@@ -34,14 +34,7 @@ const msg = `
 
 
         let buttons = [{
-                name: "cta_url",
-                    buttonParamsJson: JSON.stringify({
-                        display_text: '',
-                        url: 'https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R',
-                        merchant_url: 'https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R'
-                }),
-            },
-            {
+                
                 name: "single_select",
                 buttonParamsJson: JSON.stringify({
                     title: 'NEWS MENU',
