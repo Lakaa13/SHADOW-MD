@@ -59,6 +59,10 @@ let buttons = [{
                      title: 'SIRASA NEWS',
                      // description: `X`,
                      id: ".sirasa"
+		}, {
+                     title: 'SIRASA NEWS',
+                     // description: `X`,
+                     id: ".sirasa"
 		  }]
                }]
             })
