@@ -21,8 +21,8 @@ let status = `┌─────────────────────
 
 *❯❯❯ ꜱʜᴀᴅᴏᴡ-ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ➣*
 `
-let buttons = [
-            {
+let buttons = [{
+            
                 name: "ping",
                 buttonParamsJson: JSON.stringify({
                     display_text: "PING",
