@@ -75,7 +75,7 @@ cmd({
 
             }
 	await conn.sendMessage(from, {
-            audio: { url: 'https://github.com/Shadowteach/shadow-raw/raw/refs/heads/main/BUTTON%20ALIVE.mp3' },
+            audio: { url: 'https://github.com/Lakshanteach/RAW/raw/refs/heads/main/PTT-20241016-WA0053.m4a' },
             mimetype: 'audio/mp4',
             ptt: true
         }, { quoted: mek });
