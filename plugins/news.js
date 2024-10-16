@@ -33,7 +33,7 @@ const msg = `
 ➤ *Link* - ${news.result.url}`
 
         let buttons = [{
-            {
+            
     
 name: "quick_reply",
 buttonParamsJson: JSON.stringify({
