@@ -33,22 +33,29 @@ const msg = `
 ➤ *Link* - ${news.result.url}`
 
 let buttons = [{
-            {
-                name: "quick_reply",
+                    name: "alive",
                     buttonParamsJson: JSON.stringify({
-                        display_text: "HIRU",
+                        display_text: "alive",
+                        id: ".alive"
+                        merchant_url: config.BTNURL
+                    }),
+                },
+                {
+                    name: "NEWS",
+                    buttonParamsJson: JSON.stringify({
+                        display_text: "Get NEWS",
                         id: ".hiru"
-                }),
-            },
-    ]
-        let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
-            header: '',
-            footer: wm,
-            body: MNG
-         }
-                    
-       return await conn.sendButtonMessage(from, buttons, m, opts)
+                    }),
+                }
+            ]
+            let opts = {
+                image: `https://i.imgur.com/Mkp0Z9o.jpeg`,
+                header: '',
+                footer: config.FOOTER,
+                body: sssf
+
+            }
+            return await conn.sendButtonMessage(from, buttons, m, opts)
         } catch (e) {
             reply('*Error !!*')
             console.log(e)
