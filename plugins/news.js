@@ -33,13 +33,12 @@ const msg = `
 ➤ *Link* - ${news.result.url}`
 
         let buttons = [{
-            
-                {
+    
 name: "quick_reply",
 buttonParamsJson: JSON.stringify({
 display_text: 'Hiru News',
 id: `.hiru`
-})
+}),
 },
                        {
                        
