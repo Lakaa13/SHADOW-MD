@@ -46,7 +46,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/vUlERRz.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
@@ -95,7 +95,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/e8NzxKe.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
