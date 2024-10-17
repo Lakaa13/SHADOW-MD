@@ -347,7 +347,7 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         if (!q) return reply("_Please provide Base64 text to decode._");
-        await reply("Decoding...");
+        await reply("SHADOW Decoding...");
         let response = await fetch(`https://pure-badlands-26930-091903776676.herokuapp.com/misc/base64/decode?text=${encodeURIComponent(q)}`);
         let data = await response.json();
         if (data && data.result) {
@@ -390,7 +390,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                           `*Created At:* ${new Date(packageInfo.createdAt).toLocaleString()}\n` +
                           `*Updated At:* ${new Date(packageInfo.updatedAt).toLocaleString()}\n` +
                           `*Maintainers:* ${packageInfo.maintainers.join(', ')}\n\n` +
-                          `*Latest Versions:*\n${packageInfo.versions.slice(-5).join(", ")}\n*Queen Spriky MD*`;
+                          `*Latest Versions:*\n${packageInfo.versions.slice(-5).join(", ")}\n*> SHADOW-MD ®*`;
 
             await reply(message);
         } else {
@@ -423,7 +423,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             let ipInfo = data.data;
             let message = `*IP Address:* ${ipInfo.ip}\n` +
                           `*Latitude:* ${ipInfo.location.latitude}\n` +
-                          `*Longitude:* ${ipInfo.location.longitude}\n*Queen Spriky MD*`;
+                          `*Longitude:* ${ipInfo.location.longitude}\n*> SHADOW MD ®*`;
 
             await reply(message);
         } else {
@@ -454,12 +454,12 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let data = await response.json();
         if (data && data.status === "200" && data.data) {
             let userInfo = data.data;
-            let caption = `*Username:* ${userInfo.username}\n` +
-                          `*Name:* ${userInfo.name}\n` +
-                          `*Biography:* ${userInfo.biography}\n` +
-                          `*Posts:* ${userInfo.posts}\n` +
-                          `*Followers:* ${userInfo.followers}\n` +
-                          `*Following:* ${userInfo.following}\n*Queen Spriky MD*`;
+            let caption = `*🚀 Username:* ${userInfo.username}\n` +
+                          `*🚀 Name:* ${userInfo.name}\n` +
+                          `*🚀 Biography:* ${userInfo.biography}\n` +
+                          `*🚀 Posts:* ${userInfo.posts}\n` +
+                          `*🚀 Followers:* ${userInfo.followers}\n` +
+                          `*🚀 Following:* ${userInfo.following}\n*SADOW-MD-BOT*`;
             await conn.sendMessage(from, { image: { url: userInfo.profile_picture }, caption: caption }, { quoted: mek });
         } else {
             await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
@@ -489,14 +489,14 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         let data = await response.json();
         if (data && data.status === "success" && data.data) {
             let userInfo = data.data;
-            let caption = `*Username:* ${userInfo.login}\n` +
-                          `*Name:* ${userInfo.name}\n` +
-                          `*Bio:* ${userInfo.bio}\n` +
-                          `*Location:* ${userInfo.location}\n` +
-                          `*Public Repos:* ${userInfo.publicRepos}\n` +
-                          `*Followers:* ${userInfo.followers}\n` +
-                          `*Following:* ${userInfo.following}\n` +
-                          `*Profile:* ${userInfo.htmlUrl}\n*Queen Spriky MD*`;
+            let caption = `*🚀 Username:* ${userInfo.login}\n` +
+                          `*🚀 Name:* ${userInfo.name}\n` +
+                          `*🚀 Bio:* ${userInfo.bio}\n` +
+                          `*🚀 Location:* ${userInfo.location}\n` +
+                          `*🚀 Public Repos:* ${userInfo.publicRepos}\n` +
+                          `*🚀 Followers:* ${userInfo.followers}\n` +
+                          `*🚀 Following:* ${userInfo.following}\n` +
+                          `*🚀 Profile:* ${userInfo.htmlUrl}\n*SHADOW-MD-OWNER*`;
             await conn.sendMessage(from, { image: { url: userInfo.avatarUrl }, caption: caption }, { quoted: mek });
         } else {
             await reply("Failed to fetch GitHub user details. Please check the username.");
@@ -535,7 +535,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             return password;
         };
         const password = generatePassword(length);
-        const message = `Please find your generated password below:\n\n> *© Queen Spriky MD*`;
+        const message = `Please find your generated password below:\n\n> *> SHADOW MD ®*`;
         await conn.sendMessage(from, { text: message }, { quoted: mek });
         await conn.sendMessage(from, { text: password }, { quoted: mek });
     } catch (e) {
