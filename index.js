@@ -40,7 +40,7 @@ const {
 const path = require('path')
 const msgRetryCounterCache = new NodeCache()
 const prefix = '.'
-const ownerNumber = ['94725881990']
+const ownerNumber = ['94767910958']
 //===================SESSION============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
     if (config.SESSION_ID) {
@@ -102,12 +102,27 @@ async function connectToWA() {
             });
             console.log('Plugins installed ✅')
             console.log('Bot connected ✅')
-            await conn.sendMessage("1@s.whatsapp.net", {
-                text: "Connected to whatsapp"
-            })
-        }
-    })
+            
+            let up = `🚀SHADOW-MD CONNECTED SUCCESSFUL✅ 
 
+👑WELCOM TO SHADOW MD MULTIDEVICE WHATSAPP BOT👑
+
+*🚀 OWNER:  Lakshan damayantha 👨‍💻*
+
+*🔹 CONTACT : https://wa.me/+94767910958*
+
+  *🚀 PREFIX:   (  .  )*
+
+> THANK FOR YOU USING MY BOT  *👨‍💻SHADOW MD👨‍💻*
+> You can give happiness to others as well as yourself with this bot 💗🚀
+> This bot is the first bot I made, so let me know if there is anything wrong 😸💭
+
+*⛓JOIN IN MY WHATSAPP GROUP - :* https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R
+
+*ρσɯҽԃ Ⴆყ 𝙻𝙰𝙺𝚂𝙷𝙰𝙽 𝚃𝙴𝙲𝙻𝙾𝙻𝙾𝙶𝚈 ꪶ🕊🍒*`;
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.imgur.com/pJ5WluK.jpeg` }, caption: up })
+}
+})
 
     conn.ev.on('creds.update', saveCreds)
     conn.ev.on('messages.upsert', async (mek) => {
@@ -115,7 +130,15 @@ async function connectToWA() {
             mek = mek.messages[0]
             if (!mek.message) return
             mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-            if (mek.key && mek.key.remoteJid === 'status@broadcast') return
+            if (mek.key && mek.key.remoteJid === 'status@broadcast') && config.AUTO_READ_STATUS === "true"){
+            await conn.readMessages([mek.key])
+            }
+            //=============autobio==============
+if (config.AUTO_BIO === 'true'){
+               await
+conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦𝗧 𝗪𝗔𝗧𝗦 𝗔𝗣𝗣 𝗕𝗢𝗧 ➤ 𝗧𝗵𝗶𝘀 𝗗𝗲𝘃𝗶𝗰𝗲 𝗜𝘁 𝗛𝗮𝘃𝗲 𝗕𝗲𝗲𝗻 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗙𝗼𝗿  ${runtime(process.uptime())} ⚡💻`)
+
+}
             const m = sms(conn, mek)
             const type = getContentType(mek.message)
             const content = JSON.stringify(mek.message)
