@@ -72,7 +72,7 @@ let buttons = [{
 	
 
         let message = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/qTk19WP.jpeg`,
             header: 'POWERD BY SHADOW NEWS . LK ➤',
             footer: config.FOOTER,
             body: status
@@ -118,7 +118,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/nIBvBek.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
@@ -166,7 +166,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/W0HY4IP.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
@@ -195,7 +195,7 @@ try{
 const news = await fetchJson(`${apilink}/derana`)
   
 const status = `
-            *💭SHADOW-MD-SIRASA-NEWS.LK💭*
+            *💭SHADOW-MD-DERANA-NEWS.LK💭*
 
        
 ➤ *Title* - ${news.result.title}
@@ -214,54 +214,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
-            header: "SHADOW-MD-NEWS.LK",
-            footer: config.FOOTER,
-            body: status
-        }
-
-        return await conn.sendButtonMessage(from, buttons, m, opts)
-    } catch (e) {
-        reply('*Error !!*')
-        console.log(e)
-    }
-})
-//========sirasanews==========
-cmd({
-    pattern: "sirasanews",
-    alias: ["sirasa","news2"],
-    react: "💭",
-    desc: "",
-    category: "news",
-    use: '.sirasa',
-    filename: __filename
-},
-async(conn, mek, m,{from, quoted }) => {
-try{
-
-const news = await fetchJson(`${apilink}/sirasa`)
-  
-const status = `
-           *💭SHADOW-MD-SIRASA-NEWS.LK💭*
-
-       
-➤ *Title* - ${news.result.title}
-
-➤ *News* - ${news.result.desc}
-
-➤ *Link* - ${news.result.url}`
-let buttons = [
-{
-name: "quick_reply",
-buttonParamsJson: JSON.stringify({
-display_text: 'Get Menu',
-id: ".menu"
-}),
-}
- ]
-
-        let opts = {
-            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            image: `https://i.imgur.com/2eWPJYC.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
