@@ -115,30 +115,3 @@ console.log(e)
 reply(`${e}`)
 }
 })
-
-cmd({
-            name: "brainshop",
-            react: "🧠",
-            alias: ['bsai', 'brainshopai'],
-            need: "text",
-            category: "ai",
-            desc: "Chat to brain Shop Ai",
-            cooldown: 10,
-            filename: __filenam
-          },
-           async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-            try{
-            const sendAiResponse = (response) => {
-                pika.reply(`*🚀 bsAi :* ${response}\n\n> ${Config.footer}`);
-            }
-            if (args.length < 1) return sendAiResponse("Enter some prompts to continue!");
-            brainShopAi(pika.sender.split("@")[0], args.join(" "))
-            .then(response=> {
-                if (!response.status || !response.message) return sendAiResponse("Failed to proceed, try again later!");
-                return sendAiResponse(response.message);
-              }catch(e){
-              console.log(e)
-              reply(`${e}`)
-}
-})
-            
