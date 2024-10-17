@@ -10,28 +10,29 @@ const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO 
 
 cmd({
     pattern: "news",
-    alias: ["nws","allnews"],
+    desc: "news the bot",
+    category: "main",
     react: "💭",
-    desc: "",
-    category: "news",
-    use: '.hirunews',
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, reply}) => {
+
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 
-const news = await fetchJson(`${apilink}/hiru`)
-  
-const status = `
-           *💭SHADOW-MD-HIRU-NEWS.LK💭*
-	   
-★ 𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗧𝗛𝗘 𝗙𝗨𝗟𝗟 𝗔𝗖𝗖𝗦𝗘𝗦 𝗡𝗘𝗪𝗦 𝗜𝗡 𝗛𝗜𝗥𝗨 𝗡𝗘𝗪𝗦 ➤
-       
-➤ *Title* - ${news.result.title}
+let status = `*👋 Hello ${pushname}*
 
-➤ *News* - ${news.result.desc}
+*👨‍💻 SHADOW MD BOT NEWS.LK 👨‍💻*
 
-➤ *Link* - ${news.result.url}`
+*shadow md is Best bot wats app* ➤
+
+*💭 ඔබගෙ අතින් සුදුවන වැරදි අප හට වගකියනු නොලැබෙ 💭*
+
+*💭 sri lanka the best news in shadow MD 💭*
+
+*💡 SHADOW-MD Support Channels💭*
+
+*Whatsapp Channel Link:* Follow the 𝐒𝐇𝐀𝐃𝐎𝐖 𝐌𝐃 channel on WhatsApp: https://whatsapp.com/channel/0029Vajn0gb8F2pFh7PDqO0c
+`
 let buttons = [{
                     name: "cta_url",
                     buttonParamsJson: JSON.stringify({
