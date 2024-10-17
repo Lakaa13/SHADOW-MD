@@ -53,6 +53,7 @@ if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
         })
       })
     }
+  }
 // <<==========PORTS===========>>
 const express = require("express");
 const app = express();
