@@ -307,7 +307,29 @@ conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦�
                     messageId: message.key.id
                 })
             }
-            //==================================plugin map================================
+    
+//=====Auto-Read-Cmd==========
+if (isCmd && config.AUTO_READ_CMD === "true") {
+              await conn.readMessages([mek.key])  // Mark command as read
+}
+//Auto Typing
+        if(config.AUTO_TYPING === 'true'){await conn.sendPresenceUpdate('composing', from);}
+//====================autovoive=====================================✓
+
+if (config.AUTO_VOICE === 'true') {
+const url = 'https://raw.githubusercontent.com/DarkYasiyaofc/VOICE/main/Voice-Raw/FROZEN-V2'
+let { data } = await axios.get(url)
+for (vr in data){
+if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
+ }}
+
+//===================================work-type=========================================// 
+if(!isOwner && config.MODE === "private") return
+if(!isOwner && isGroup && config.MODE === "inbox") return
+if(!isOwner && !isGroup && config.MODE === "groups") return
+//==========================================================================//       
+
+//==================================plugin map================================
             const events = require('./command')
             const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
             if (isCmd) {
