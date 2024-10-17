@@ -1,11 +1,7 @@
 const config = require('../config');
-const { cmd, commands } = require('../command');
-const dl = require('@bochilteam/scraper');
+const { cmd } = require('../command');
 const fg = require('api-dylux');
-const fs = require('fs-extra');
 const yts = require('yt-search');
-
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('../lib/functions');
 
 // Command for downloading songs
 cmd({
@@ -16,7 +12,7 @@ cmd({
     desc: "Search & download yt song.",
     category: "download",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, prefix, isCmd, command, args, reply, q }) => {
+}, async (conn, mek, m, { from, reply, q }) => {
     try {
         if (!q) return reply("Please provide a song name.");
         
@@ -25,55 +21,40 @@ cmd({
         
         if (!data) return reply("No results found!");
 
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(data.url);
         const downloadUrl = down.dl_url;
 
         const msg = `\`✦ Qᴜᴇᴇɴ-ᴋᴇɴᴢɪ ᴍᴅ ᴠ2 ✦\`
-
-       \`❒ 𝗦𝗼𝗻𝗴 𝗗𝗼𝘄𝗻𝗹𝗼𝗱𝗲𝗿 ❒\`
-       
+       \`❒ 𝗦𝗼𝗻𝗴 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿 ❒\`
        \`❡ Title\` : ${data.title}
        \`❡ Views\` : ${data.views}
        \`❡ Duration\` : ${data.timestamp}
-       \`❡ Url\` : ${data.url}
-       `;
+       \`❡ Url\` : ${data.url}`;
 
         let buttons = [
-            {
-                name: "cta_url",
-                buttonParamsJson: JSON.stringify({
-                    display_text: config.BTN,
-                    url: config.BTNURL
-                }),
-            },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "Audio",
-                    id: `${prefix}audsong ${data.url}`
+                    id: `audsong ${data.url}`
                 }),
             },
             {
                 name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
                     display_text: "Document",
-                    id: `${prefix}dosong ${data.url}`
+                    id: `dosong ${data.url}`
                 })
             }
         ];
 
-        let message = {
+        await conn.sendButtonMessage(from, {
             image: data.thumbnail,
             footer: config.FOOTER,
-            body: msg,
-            forwardingScore: 9999,
-            isForwarded: true
-        };
-        
-        await conn.sendButtonMessage(from, buttons, m, message);
+            body: msg
+        }, buttons, m);
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply("🚩 Not Found !");
     }
 });
@@ -81,7 +62,6 @@ cmd({
 // Command for downloading audio
 cmd({
     pattern: "audsong",
-    alias: ["play", "ytmp3", "yta", "lagu"],
     use: '.audsong <song url>',
     react: "🍟",
     desc: "Download audio from YouTube.",
@@ -91,18 +71,12 @@ cmd({
     try {
         if (!q) return reply("Please provide a song URL.");
         
-        const search = await yts(q);
-        const data = search.videos[0];
-        
-        if (!data) return reply("No results found!");
-
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(q);
         const downloadUrl = down.dl_url;
 
         await conn.sendMessage(from, { audio: { url: downloadUrl }, mimetype: "audio/mpeg" }, { quoted: mek });
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply('Error !!');
     }
 });
@@ -110,7 +84,6 @@ cmd({
 // Command for downloading song as a document
 cmd({
     pattern: "dosong",
-    alias: ["play", "ytmp3", "yta", "lagu"],
     use: '.dosong <song url>',
     react: "🍟",
     desc: "Download song as document.",
@@ -120,22 +93,16 @@ cmd({
     try {
         if (!q) return reply("Please provide a song URL.");
         
-        const search = await yts(q);
-        const data = search.videos[0];
-        
-        if (!data) return reply("No results found!");
-
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(q);
         const downloadUrl = down.dl_url;
 
         await conn.sendMessage(from, {
             document: { url: downloadUrl },
-            mimetype: "video/mp4",
-            fileName: `${data.title}.mp4`
+            mimetype: "audio/mpeg",
+            fileName: `${q}.mp3`
         }, { quoted: mek });
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply("🚩 Not Found !");
     }
 });
@@ -156,54 +123,40 @@ cmd({
         
         if (!data) return reply("No results found!");
 
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(data.url);
         const downloadUrl = down.dl_url;
 
         const msg = `\`✦ Qᴜᴇᴇɴ-ᴋᴇɴᴢɪ ᴍᴅ ᴠ2 ✦\`
-
-       \`❒ 𝗩𝗶𝗱𝗲𝗼 𝗗𝗼𝘄𝗻𝗹𝗼𝗱𝗲𝗿 ❒\`
-       
+       \`❒ 𝗩𝗶𝗱𝗲𝗼 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿 ❒\`
        \`❡ Title\` : ${data.title}
        \`❡ Views\` : ${data.views}
        \`❡ Duration\` : ${data.timestamp}
-       \`❡ Url\` : ${data.url}
-       `;
+       \`❡ Url\` : ${data.url}`;
 
         let buttons = [
             {
-                name: "cta_url",
+                name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    display_text: config.BTN,
-                    url: config.BTNURL
+                    display_text: "Download Video",
+                    id: `vvideo ${data.url}`
                 }),
             },
             {
-                name: 'single_select',
+                name: "quick_reply",
                 buttonParamsJson: JSON.stringify({
-                    title: 'Tap Here!',
-                    sections: [{
-                        rows: [{
-                            title: 'VIDEO',
-                            id: `${prefix}vvideo ${data.url}`
-                        }, {
-                            title: 'DOCUMENT',
-                            id: `${prefix}ddocument ${data.url}`
-                        }]
-                    }]
+                    display_text: "Download as Document",
+                    id: `ddocument ${data.url}`
                 })
             }
         ];
 
-        let message = {
+        await conn.sendButtonMessage(from, {
             image: data.thumbnail,
             footer: config.FOOTER,
             body: msg
-        };
-
-        await conn.sendButtonMessage(from, buttons, m, message);
+        }, buttons, m);
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply("🚩 Not Found !");
     }
 });
@@ -219,18 +172,12 @@ cmd({
     try {
         if (!q) return reply("Please provide a URL or title.");
         
-        const search = await yts(q);
-        const data = search.videos[0];
-        
-        if (!data) return reply("No results found!");
-
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(q);
         const downloadUrl = down.dl_url;
 
         await conn.sendMessage(from, { video: { url: downloadUrl }, mimetype: "video/mp4" }, { quoted: mek });
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply("🚩 Not Found !");
     }
 });
@@ -246,23 +193,17 @@ cmd({
     try {
         if (!q) return reply("Please provide a URL or title.");
         
-        const search = await yts(q);
-        const data = search.videos[0];
-        
-        if (!data) return reply("No results found!");
-
-        const url = data.url;
-        const down = await fg.yta(url);
+        const down = await fg.yta(q);
         const downloadUrl = down.dl_url;
 
         await conn.sendMessage(from, {
             document: { url: downloadUrl },
             mimetype: "video/mp4",
-            caption: "💻MADE BY DANUPA💻",
-            fileName: `${data.title}.mp4`
+            caption: "💻 MADE BY DANUPA 💻",
+            fileName: `${q}.mp4`
         }, { quoted: mek });
     } catch (e) {
-        console.log(e);
+        console.error(e);
         reply("🚩 Not Found !");
     }
 });
