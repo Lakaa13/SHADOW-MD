@@ -39,11 +39,12 @@ cmd({
             const sssf = `${monspace}👋 Hello ${pushname} I'm alive now${monspace}
 
 *👨‍💻 Im SHADOW-MD whatsapp bot*
-    
-> *Version:* ${require("../package.json").version}
-> *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-> *Runtime:* ${runtime(process.uptime())}
-> *Platform:* ${hostname}
+╭────────────────────────●●►    
+| > *Version:* ${require("../package.json").version}
+| > *Memory:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+| > *Runtime:* ${runtime(process.uptime())}
+| > *Platform:* ${hostname}
+╰────────────────────────●●►
 
 🚀 WELCOM TO SHADOW MD 🚀*
 
@@ -134,12 +135,12 @@ cmd({
 	    
 ${monspace}👋 Hello ${pushname}${monspace}
 
-
- *🚀𝙑𝙀𝙍𝙎𝙄𝙊𝙉:* ${require("../package.json").version}
- *⌛𝙈𝙀𝙈𝙊𝙍𝙔:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
- *📍𝙋𝙇𝘼𝙏𝙁𝙊𝙍𝙈:* ${hostname}
- *⏰𝗥𝗨𝗡𝗧𝗜𝗠𝗘:* ${runtime(process.uptime())}
- 
+╭─────────────────────●●►
+| *🚀𝙑𝙀𝙍𝙎𝙄𝙊𝙉:* ${require("../package.json").version}
+| *⌛𝙈𝙀𝙈𝙊𝙍𝙔:* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+| *📍𝙋𝙇𝘼𝙏𝙁𝙊𝙍𝙈:* ${hostname}
+| *⏰𝗥𝗨𝗡𝗧𝗜𝗠𝗘:* ${runtime(process.uptime())}
+╰─────────────────────●●►
  *💭 ➤ New version shadow md is very smart and developed with technical technology and java script, the owner takes care to update it from year to year to help the users to get various benefits We apologize if there are any problems with Shado md is, owner Lakshan damayantha 🚀💗👨‍🚀*
 `
             const categories = [];
@@ -189,8 +190,15 @@ ${monspace}👋 Hello ${pushname}${monspace}
 		{
 name: "quick_reply",
 buttonParamsJson: JSON.stringify({
-display_text: 'Bot Script',
+display_text: 'Bot Script🗒️',
 id: ".script"
+}),
+	},
+	{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Bot Owner👨‍💻',
+id: ".owner"
 }),
 	}
 	    
