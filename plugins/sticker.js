@@ -2,14 +2,10 @@ const config = require('../config');
 const { Sticker, StickerTypes } = require('wa-sticker-formatter');
 const { cmd } = require('../command');
 const { getRandom } = require('../lib/functions');
+const fs = require('fs').promises;
 
-var imgmsg = '';
-if (config.LANG === 'SI') imgmsg = 'ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ!';
-else imgmsg = 'ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ ғᴏʀ sᴛɪᴄᴋᴇʀ!';
-
-var descg = '';
-if (config.LANG === 'SI') descg = 'Sticker Converting...';
-else descg = 'ɪᴛ ᴄᴏɴᴠᴇʀᴛs ʏᴏᴜʀ ʀᴇᴘʟɪᴇᴅ ᴘʜᴏᴛᴏ ᴛᴏ sᴛɪᴄᴋᴇʀ.';
+let imgmsg = config.LANG === 'SI' ? 'ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ!' : 'ʀᴇᴘʏ ᴛᴏ ᴀ ᴘʜᴏᴛᴏ ғᴏʀ sᴛɪᴄᴋᴇʀ!';
+let descg = config.LANG === 'SI' ? 'Sticker Converting...' : 'ɪᴛ ᴄᴏɴᴠᴇʀᴛs ʏᴏᴜʀ ʀᴇᴘʟɪᴇᴅ ᴘʜᴏᴛᴏ ᴛᴏ sᴛɪᴄᴋᴇʀ.';
 
 cmd({
     pattern: 'sticker',
@@ -19,24 +15,24 @@ cmd({
     category: 'convert',
     use: '.sticker <Reply to image>',
     filename: __filename
-}, async (conn, mek, m, { from, reply, isCmd, command, args, q, isGroup, pushname }) => {
+}, async (conn, mek, m, { from, reply, command, q, pushname }) => {
     try {
         const isQuotedImage = m.quoted && (m.quoted.type === 'imageMessage' || (m.quoted.type === 'viewOnceMessage' && m.quoted.msg.type === 'imageMessage'));
         const isQuotedSticker = m.quoted && m.quoted.type === 'stickerMessage';
 
-        if ((m.type === 'imageMessage') || isQuotedImage) {
+        if (m.type === 'imageMessage' || isQuotedImage) {
             const nameJpg = getRandom('.jpg');
             const imageBuffer = isQuotedImage ? await m.quoted.download() : await m.download();
-            await require('fs').promises.writeFile(nameJpg, imageBuffer);
+            await fs.writeFile(nameJpg, imageBuffer);
 
             let sticker = new Sticker(nameJpg, {
-                pack: pushname, // The pack name
-                author: '', // The author name
+                pack: pushname,
+                author: '',
                 type: q.includes('--crop') || q.includes('-c') ? StickerTypes.CROPPED : StickerTypes.FULL,
-                categories: ['🤩', '🎉'], // The sticker category
-                id: '12345', // The sticker id
-                quality: 75, // The quality of the output file
-                background: 'transparent', // The sticker background color (only for full stickers)
+                categories: ['🤩', '🎉'],
+                id: '12345',
+                quality: 75,
+                background: 'transparent',
             });
 
             const buffer = await sticker.toBuffer();
@@ -44,21 +40,25 @@ cmd({
         } else if (isQuotedSticker) {
             const nameWebp = getRandom('.webp');
             const stickerBuffer = await m.quoted.download();
-            await require('fs').promises.writeFile(nameWebp, stickerBuffer);
+            await fs.writeFile(nameWebp, stickerBuffer);
 
             let sticker = new Sticker(nameWebp, {
-                pack: pushname, // The pack name
-                author: 'SHADOW-MD', // The author name
+                pack: pushname,
+                author: 'SHADOW-MD',
                 type: q.includes('--crop') || q.includes('-c') ? StickerTypes.CROPPED : StickerTypes.FULL,
-                categories: ['🤩', '🎉'], // The sticker category
-                id: '12345', // The sticker id
-                quality: 75, // The quality of the output file
-                background: 'transparent', // The sticker background color (only for full stickers)
+                categories: ['🤩', '🎉'],
+                id: '12345',
+                quality: 75,
+                background: 'transparent',
             });
 
-            await sticker.toBuffer();
-            return conn.sendMessage(from, { sticker: buffer },
-        reply('*Error!!*');
+            const buffer = await sticker.toBuffer();
+            return conn.sendMessage(from, { sticker: buffer }, { quoted: mek });
+        } else {
+            return reply(imgmsg);
+        }
+    } catch (e) {
         console.error(e);
+        return reply('*Error!!*');
     }
 });
