@@ -166,7 +166,7 @@ id: ".menu"
  ]
 
         let opts = {
-            image: `https://i.imgur.com/W0HY4IP.jpeg`,
+            image: `https://i.imgur.com/wW1D921.jpeg`,
             header: "SHADOW-MD-NEWS.LK",
             footer: config.FOOTER,
             body: status
