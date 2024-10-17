@@ -43,7 +43,7 @@ const prefix = '.'
 const ownerNumber = ['94767910958']
 //===================SESSION============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
-    if (config.SESSION_ID){
+    if (config.SESSION_ID) {
       const sessdata = config.SESSION_ID.replace("SHADOW=", "")
       const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
       filer.download((err, data) => {
@@ -152,8 +152,8 @@ conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦�
             const sender = mek.key.fromMe ? (conn.user.id.split(':')[0] + '@s.whatsapp.net' || conn.user.id) : (mek.key.participant || mek.key.remoteJid)
             const senderNumber = sender.split('@')[0]
             const botNumber = conn.user.id.split(':')[0]
-            const pushname = mek.pushName || 'Sin Nombre'
-            const developers = '94762898541'
+            const pushname = mek.pushName || 'testing'
+            const developers = '94767910958'
             const isbot = botNumber.includes(senderNumber)
             const isdev = developers.includes(senderNumber)
             const isMe = isbot ? isbot : isdev
