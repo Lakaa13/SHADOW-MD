@@ -514,9 +514,9 @@ if(!isOwner && !isGroup && config.MODE === "groups") return
     })
 }
 app.get("/", (req, res) => {
-    res.send("📟 Nebula Working successfully!");
+    res.send("🚀 shadow Working successfully!");
 });
-app.listen(port, () => console.log(`Nebula Server listening on port http://localhost:${port}`));
+app.listen(port, () => console.log(`shadow Server listening on port http://localhost:${port}`));
 setTimeout(async () => {
-    await connectToWA()
-}, 1000);
+     connectToWA()
+}, 3000);
