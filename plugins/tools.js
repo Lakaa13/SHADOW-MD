@@ -4,7 +4,6 @@ const fetch = require('node-fetch');
 const {fetchJson} = require('../lib/functions');
 const axios = require('axios');
 const cheerio = require("cheerio");
-const scraper = require("../lib/scraper");
 const emailDataStore = {};
 
 //-----------------------------------------------Calculator-----------------------------------------------
@@ -32,7 +31,7 @@ async (conn, mek, m, {
             return reply('Invalid mathematical expression.');
         }
 
-        return await conn.sendMessage(from, { text: `Result: ${result}` }, { quoted: mek });
+        return await conn.sendMessage(from, { text: `Calculater: ${result}` }, { quoted: mek });
 
     } catch (e) {
         console.log(e);
