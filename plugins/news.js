@@ -10,7 +10,7 @@ const apilink = 'https://dark-yasiya-news-apis.vercel.app/api' // API LINK ( DO 
 
 cmd({
     pattern: "news",
-    alias: ["hiru","news1"],
+    alias: ["nws","allnews"],
     react: "💭",
     desc: "",
     category: "news",
@@ -82,6 +82,54 @@ return conn.sendButtonMessage(from, buttons, m, message)
         console.log(e)
     }
 })
+cmd({
+    pattern: "hirunews",
+    alias: ["hiru","news1"],
+    react: "💭",
+    desc: "",
+    category: "news",
+    use: '.hirunews',
+    filename: __filename
+},
+async(conn, mek, m,{from, quoted, reply}) => {
+try{
+
+const news = await fetchJson(`${apilink}/hiru`)
+  
+const status = `
+           *💭SHADOW-MD-HIRU-NEWS.LK💭*
+	   
+★ 𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗧𝗛𝗘 𝗙𝗨𝗟𝗟 𝗔𝗖𝗖𝗦𝗘𝗦 𝗡𝗘𝗪𝗦 𝗜𝗡 𝗛𝗜𝗥𝗨 𝗡𝗘𝗪𝗦 ➤
+       
+➤ *Title* - ${news.result.title}
+
+➤ *News* - ${news.result.desc}
+
+➤ *Link* - ${news.result.url}`
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'Get Menu',
+id: ".menu"
+}),
+}
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "SHADOW-MD-NEWS.LK",
+            footer: config.FOOTER,
+            body: status
+        }
+
+        return await conn.sendButtonMessage(from, buttons, m, opts)
+    } catch (e) {
+        reply('*Error !!*')
+        console.log(e)
+    }
+})
+
 //========sirasanews==========
 cmd({
     pattern: "sirasanews",
