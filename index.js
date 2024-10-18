@@ -514,9 +514,9 @@ if(!isOwner && !isGroup && config.MODE === "groups") return
     })
 }
 app.get("/", (req, res) => {
-    res.send("🚀 shadow Working successfully!");
+res.send("📟 Working successfully!");
 });
-app.listen(port, () => console.log(`shadow Server listening on port http://localhost:${port}`));
-setTimeout(async () => {
-     connectToWA()
+app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
+setTimeout(() => {
+connectToWA()
 }, 3000);
