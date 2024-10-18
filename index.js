@@ -167,7 +167,7 @@ async function connectToWA() {
             const isbot = botNumber.includes(senderNumber)
             const isKalana = developers.includes(senderNumber)
             const isMe = isbot ? isbot : isKalana
-            const MEDZ = '94767910958
+            const MEDZ = '94767910958'
             const isMEDZ = MEDZ?.includes(senderNumber)
             const isOwner = ownerNumber.includes(senderNumber) || isMe
             const botNumber2 = await jidNormalizedUser(conn.user.id); 
