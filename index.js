@@ -326,7 +326,7 @@ if (isCmd && config.AUTO_READ_CMD === "true") {
 //====================autovoive=====================================✓
 
 if (config.AUTO_VOICE === 'true') {
-const url = 'https://gist.githubusercontent.com/Lakshanteach/ff873cbb3f409cc98b77bbf6c485772c/raw/c1583e2aa324ff7ea5401f99c2a0992d1e8253ce/gistfile1.txt'
+const url = 'https://raw.githubusercontent.com/DarkYasiyaofc/VOICE/main/Voice-Raw/FROZEN-V2'
 let { data } = await axios.get(url)
 for (vr in data){
 if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
