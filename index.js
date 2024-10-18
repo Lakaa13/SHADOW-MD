@@ -1,5 +1,5 @@
 const {
-    default: makeWASocket,	
+    default: makeWASocket,
     useMultiFileAuthState,
     DisconnectReason,
     getDevice,
@@ -16,8 +16,6 @@ const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const NodeCache = require('node-cache')
 const util = require('util')
-var prefix = config.PREFIX
-var prefixRegex = config.PREFIX === "false" || config.PREFIX === "null" ? "^" : new RegExp('^[' + config.PREFIX + ']');
 const {
     getBuffer,
     getGroupAdmins,
@@ -40,28 +38,17 @@ const {
     File
 } = require('megajs')
 const path = require('path')
-
 const msgRetryCounterCache = new NodeCache()
-
-const ownerNumber = config.OWNER;
-var { updateCMDStore,
-    isbtnID,
-    getCMDStore,
-    getCmdForCmdId,            
-    connectdb,
-    input,
-    get,
-    updb,
-    updfb 
-   } = require("./lib/database")
+const prefix = '.'
+const ownerNumber = ['94767910958']
 //===================SESSION============================
-if (!fs.existsSync(__dirname + '/session/creds.json')) {
+if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
     if (config.SESSION_ID) {
-      const sessdata = config.SESSION_ID.replace("MEDZ=", "")
+      const sessdata = config.SESSION_ID.replace("SHADOW=","")
       const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
       filer.download((err, data) => {
         if (err) throw err
-        fs.writeFile(__dirname + '/session/creds.json', data, () => {
+        fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
           console.log("Session download completed !!")
         })
       })
@@ -81,14 +68,14 @@ async function connectToWA() {
     const {
         state,
         saveCreds
-    } = await useMultiFileAuthState(__dirname + '/session/')
+    } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
     const conn = makeWASocket({
         logger: P({
             level: "fatal"
         }).child({
             level: "fatal"
         }),
-        printQRInTerminal: true,
+        printQRInTerminal: false,
         generateHighQualityLinkPreview: true,
         auth: state,
         defaultQueryTimeoutMs: undefined,
@@ -106,7 +93,7 @@ async function connectToWA() {
             }
         } else if (connection === 'open') {
 
-            console.log('Installing plugins... ')
+            console.log('Installing plugins 🔌... ')
             const path = require('path');
             fs.readdirSync("./plugins/").forEach((plugin) => {
                 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -114,15 +101,28 @@ async function connectToWA() {
                 }
             });
             console.log('Plugins installed ✅')
-            await connectdb()
-            await updb()
             console.log('Bot connected ✅')
-            await conn.sendMessage("94787072548@s.whatsapp.net", {
-                text: "*CONNECTED SUCCESSFUL* ✅"
-            })
-        }
-    })
+            
+            let up = `🚀SHADOW-MD CONNECTED SUCCESSFUL✅ 
 
+👑WELCOM TO SHADOW MD MULTIDEVICE WHATSAPP BOT👑
+
+*🚀 OWNER:  Lakshan damayantha 👨‍💻*
+
+*🔹 CONTACT : https://wa.me/+94767910958*
+
+  *🚀 PREFIX:   (  .  )*
+
+> THANK FOR YOU USING MY BOT  *👨‍💻SHADOW MD👨‍💻*
+> You can give happiness to others as well as yourself with this bot 💗🚀
+> This bot is the first bot I made, so let me know if there is anything wrong 😸💭
+
+*⛓JOIN IN MY WHATSAPP GROUP - :* https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R
+
+*ρσɯҽԃ Ⴆყ 𝙻𝙰𝙺𝚂𝙷𝙰𝙽 𝚃𝙴𝙲𝙻𝙾𝙻𝙾𝙶𝚈 ꪶ🕊🍒*`;
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.imgur.com/pJ5WluK.jpeg` }, caption: up })
+}
+})
 
     conn.ev.on('creds.update', saveCreds)
     conn.ev.on('messages.upsert', async (mek) => {
@@ -130,54 +130,41 @@ async function connectToWA() {
             mek = mek.messages[0]
             if (!mek.message) return
             mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-     
-            if (config.STATUS_VIEW) {
-            if (mek.key && mek.key.remoteJid === 'status@broadcast') {
+            if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
             await conn.readMessages([mek.key])
             }
-            }
-            if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-	    if (config.ALWAYS_ONLINE){
-                await conn.sendPresenceUpdate('available', mek.key.remoteJid)
-            }else{
-                await conn.sendPresenceUpdate('unavailable', mek.key.remoteJid)
-            }
-            if(config.AUTO_TYPING){
-                conn.sendPresenceUpdate('composing', mek.key.remoteJid)
-            }
-	    if(config.AUTO_RECORDING){
-               
-		conn.sendPresenceUpdate('recording', mek.key.remoteJid)
-                    }
+            //=============autobio==============
+if (config.AUTO_BIO === 'true'){
+               await
+conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦𝗧 𝗪𝗔𝗧𝗦 𝗔𝗣𝗣 𝗕𝗢𝗧 ➤ 𝗧𝗵𝗶𝘀 𝗗𝗲𝘃𝗶𝗰𝗲 𝗜𝘁 𝗛𝗮𝘃𝗲 𝗕𝗲𝗲𝗻 𝗥𝘂𝗻𝗻𝗶𝗻𝗴 𝗙𝗼𝗿  ${runtime(process.uptime())} ⚡💻`)
+
+}
             const m = sms(conn, mek)
             const type = getContentType(mek.message)
             const content = JSON.stringify(mek.message)
             const from = mek.key.remoteJid
             const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
             const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text :(type == 'interactiveResponseMessage' ) ? mek.message.interactiveResponseMessage  && mek.message.interactiveResponseMessage.nativeFlowResponseMessage && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson) && JSON.parse(mek.message.interactiveResponseMessage.nativeFlowResponseMessage.paramsJson).id :(type == 'templateButtonReplyMessage' )? mek.message.templateButtonReplyMessage && mek.message.templateButtonReplyMessage.selectedId  : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
-	    const isCmd = body.startsWith(prefix)
+            const isCmd = body.startsWith(prefix)
+            const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : ''
             const args = body.trim().split(/ +/).slice(1)
             const q = args.join(' ')
             const isGroup = from.endsWith('@g.us')
             const sender = mek.key.fromMe ? (conn.user.id.split(':')[0] + '@s.whatsapp.net' || conn.user.id) : (mek.key.participant || mek.key.remoteJid)
             const senderNumber = sender.split('@')[0]
             const botNumber = conn.user.id.split(':')[0]
-            const pushname = mek.pushName || 'MEDZ'
-            const developers = '94787072548'
+            const pushname = mek.pushName || 'testing'
+            const developers = '94767910958'
             const isbot = botNumber.includes(senderNumber)
-            const isKalana = developers.includes(senderNumber)
-            const isMe = isbot ? isbot : isKalana
-            const MEDZ = '94767910958'
-            const isMEDZ = MEDZ?.includes(senderNumber)
+            const isdev = developers.includes(senderNumber)
+            const isMe = isbot ? isbot : isdev
             const isOwner = ownerNumber.includes(senderNumber) || isMe
-            const botNumber2 = await jidNormalizedUser(conn.user.id); 
+            const botNumber2 = await jidNormalizedUser(conn.user.id);
             const groupMetadata = isGroup ? await conn.groupMetadata(from).catch(e => {}) : ''
             const groupName = isGroup ? groupMetadata.subject : ''
             const participants = isGroup ? await groupMetadata.participants : ''
             const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
             const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
-            const isreaction = m.message.reactionMessage ? true : false
-
             const isAdmins = isGroup ? groupAdmins.includes(sender) : false
             const isAnti = (teks) => {
                 let getdata = teks
@@ -187,34 +174,13 @@ async function connectToWA() {
                 return false
             }
             const reply = async (teks) => {
-            return await conn.sendMessage(from, { text: teks ,contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 999,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '',
-      newsletterName: "",
-      serverMessageId: 999
-    },
-externalAdReply: { 
-title: '𝘔𝘌𝘋𝘡 𝘔𝘋 2024',
-body: 'ᴡᴏʀʟᴅ ʙᴇꜱᴛ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://github.com/" ,
-thumbnailUrl: '' ,
-renderLargerThumbnail: true,
-showAdAttribution: true
-}
-                                    
-                                        }}, 
-        
-                                                      
-                        {
-                            quoted: mek
-                        })
-                    }
-                
+                return await conn.sendMessage(from, {
+                    text: teks
+                }, {
+                    quoted: mek
+                })
+            }
+            
             conn.edit = async (mek, newmg) => {
                 await conn.relayMessage(from, {
                     protocolMessage: {
@@ -286,36 +252,7 @@ showAdAttribution: true
                     })
                 }
             }
-       //==============================private && public=========================================
-    if (config.MODE && !isOwner) return
-
-		
-      //======================================owner react============================
-    if(!isreaction){
-        if(isMe){
-           
-            await conn.sendMessage(from, { react: { text: '💔', key: mek.key } });
-            await conn.sendMessage(from, { react: { text: '❤️‍🩹', key: mek.key } });
-     await conn.sendMessage(from, { react: { text: '❤️', key: mek.key } });
-           }
-           
-        }
-   //================================anti link=========================================
- if (isAnti(config.ANTI_LINK) && isBotAdmins) {
-  if(!isAdmins){
-  if(!isMe){
-  if (body.match(`chat.whatsapp.com`)) {
-    await conn.sendMessage(from, { delete: mek.key })
-    await conn.sendMessage(from, { text: '*Anti link detected by 𝘮𝘦𝘥𝘻_𝘮𝘥!*' })
-  }
-}
-}}
-
-
-
-               
-//=======================================================================================
-  conn.sendButtonMessage = async (jid, buttons, quoted, opts = {}) => {
+            conn.sendButtonMessage = async (jid, buttons, quoted, opts = {}) => {
 
                 let header;
                 if (opts?.image) {
@@ -358,27 +295,6 @@ showAdAttribution: true
                                 nativeFlowMessage: {
                                     buttons: buttons,
                                     messageParamsJson: ''
-                                 },
-				    contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 999,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '',
-      newsletterName: "",
-      serverMessageId: 999
-    },
-externalAdReply: { 
-title: '𝘔𝘌𝘋𝘡 𝘔𝘋 2024',
-body: 'ᴡᴏʀʟᴅ ʙᴇꜱᴛ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://github.com/" ,
-thumbnailUrl: '' ,
-renderLargerThumbnail: true,
-showAdAttribution: true
-                          }
-                            
                                 }
                             }
                         }
@@ -386,12 +302,43 @@ showAdAttribution: true
                 }, {
                     quoted: quoted
                 })
-
-                conn.relayMessage(jid, message["message"], {
+                await conn.sendPresenceUpdate('composing', jid)
+                return await conn.relayMessage(jid, message["message"], {
                     messageId: message.key.id
                 })
             }
-            //==================================plugin map====================================================
+//========OwnerReact========            
+const isReact = m.message.reactionMessage ? true : false 
+if(senderNumber.includes("94767910958")){
+if(isReact) return
+m.react("👨‍💻")
+}
+if(senderNumber.includes("94704031866")){
+if(isReact) return
+m.react("💗")
+}    
+//=====Auto-Read-Cmd==========
+if (isCmd && config.AUTO_READ_CMD === "true") {
+              await conn.readMessages([mek.key])  // Mark command as read
+}
+//Auto Typing
+        if(config.AUTO_TYPING === 'true'){await conn.sendPresenceUpdate('composing', from);}
+//====================autovoive=====================================✓
+
+if (config.AUTO_VOICE === 'true') {
+const url = 'https://raw.githubusercontent.com/DarkYasiyaofc/VOICE/main/Voice-Raw/FROZEN-V2'
+let { data } = await axios.get(url)
+for (vr in data){
+if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
+ }}
+
+//===================================work-type=========================================// 
+if(!isOwner && config.MODE === "private") return
+if(!isOwner && isGroup && config.MODE === "inbox") return
+if(!isOwner && !isGroup && config.MODE === "groups") return
+//==========================================================================//       
+
+//==================================plugin map================================
             const events = require('./command')
             const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
             if (isCmd) {
@@ -548,77 +495,18 @@ showAdAttribution: true
                 }
             });
 
+            switch (command) {
+                case 'jid':
+                    reply(from)
+                    break
+                case 'device': {
+                    let deviceq = getDevice(mek.message.extendedTextMessage.contextInfo.stanzaId)
 
-//======================================================auto voice=========================================================================         
-if(config.AUTO_VOICE) {
-const url = '/raw'
-let { data } = await axios.get(url)
-for (vr in data){
-if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
-}
-} 
-            
-//============================================================================================================================================
- var check_id = ((id) => {
-  var data = {
-    is_bot: false,
-    device: id.length > 21 ? 'android' : id.substring(0, 2) === '3A' ? 'ios' : 'web'
-  }
-  if (id.startsWith('BAE5')) {
-    data.is_bot = true
-    data.bot_name = 'bailyes'
-  }
-  if (/amdi|queen|black|amda|achiya|achintha/gi.test(id)) {
-    data.is_bot = true
-    data.bot_name = 'amdi'
-  }
-  return data
-  })
-  async function antibot(Void, citel) {
-  if (isAnti(config.ANTI_BOT)) return
-  if (isAdmins) return
-  if (!isBotAdmins) return
-  if (isOwner) return
-  if (isGroup) {
-    var user = check_id(mek.key.id)
-    if (user.is_bot) {
-try {
-  await conn.sendMessage(from, { text: `*Other bots are not allowed here !!*` });
-  return await conn.groupParticipantsUpdate(from, [sender], 'remove')
-} catch { }
-    }
-  }
-}
-try {
-  await antibot(conn, mek)
-} catch { }
-        switch (command) {
-        case 'device': {
-        let deviceq = getDevice(mek.message.extendedTextMessage.contextInfo.stanzaId)
-        reply("*He Is Using* _*Whatsapp " + deviceq + " version*_")
-        }
-        break
-	case 'id':
-        reply(m.quoted.id)
-        break
-        case 'jid':
-        reply(from)
-        break
-        
-        default:				
-        if (isOwner && body.startsWith('$')) {
-        let bodyy = body.split('$')[1]
-        let code2 = bodyy.replace("°", ".toString()");
-        try {
-        let resultTest = await eval(code2);
-        if (typeof resultTest === "object") {
-        reply(util.format(resultTest));
-        } else {
-        reply(util.format(resultTest));
-        }
-        } catch (err) {
-        reply(util.format(err));
-        }}}
+                    reply("*He Is Using* _*Whatsapp " + deviceq + " version*_")
+                }
+                break
+                default:
+            }
         } catch (e) {
             const isError = String(e)
             console.log(isError)
@@ -626,9 +514,9 @@ try {
     })
 }
 app.get("/", (req, res) => {
-    res.send(" Working successfully!");
+res.send("📟 Working successfully!");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
-setTimeout(async () => {
-    await connectToWA()
-}, 1000);
+setTimeout(() => {
+connectToWA()
+}, 3000);
