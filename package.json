@@ -31,7 +31,7 @@
         "wa-sticker-formatter": "^4.3.2",
         "util": "^0.12.4",
         "puppeteer": "23.5.3",
-        "api-dylux":"1.8.5",
+        "api-dylux":"^1.8.5",
         "yt-search": "2.12.1",
         "ytdl-core": "^4.11.5",
         "xnxx-dl": "^1.0.2",
