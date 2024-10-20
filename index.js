@@ -307,7 +307,9 @@ conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦�
                     messageId: message.key.id
                 })
             }
+
 //Auto React
+const isReact = m.message.reactionMessage ? true : false 
 if (config.AUTO_REACT === 'true') { 
 if (isReact) return;
 const emojis = ["🎨", "🔥", "✨", "🔮", "♠️", "🪄", "🔗", "🫧", "🪷", "🦠", "🌺", "🐬", "🦋", "🍁", "🌿", "🍦", "🌏", "✈️", "❄️"];
@@ -317,7 +319,6 @@ m.react(emoji);
 });
 }
 //========OwnerReact========            
-const isReact = m.message.reactionMessage ? true : false 
 if(senderNumber.includes("94767910958")){
 if(isReact) return
 m.react("👨‍💻")
@@ -325,7 +326,7 @@ m.react("👨‍💻")
 if(senderNumber.includes("94704031866")){
 if(isReact) return
 m.react("💗")
-}    
+} 
 //=====Auto-Read-Cmd==========
 if (isCmd && config.AUTO_READ_CMD === "true") {
               await conn.readMessages([mek.key])  // Mark command as read
