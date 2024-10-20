@@ -312,7 +312,7 @@ conn.updateProfileStatus(`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 💗 𝗕𝗘𝗦�
 const isReact = m.message.reactionMessage ? true : false 
 if (config.AUTO_REACT === 'true') { 
 if (isReact) return;
-const emojis = ["🎨", "🔥", "✨", "🔮", "♠️", "🪄", "🔗", "🫧", "🪷", "🦠", "🌺", "🐬", "🦋", "🍁", "🌿", "🍦", "🌏", "✈️", "❄️"];
+const emojis = ["💗", "🔥", "✨", "💯", "♠️", "🪄", "🔗", "🫧", "🪷", "🦠", "🌺", "🐬", "🦋", "🍁", "🌿", "🍦", "🌏", "✈️", "❄️"];
   
 emojis.forEach(emoji => {
 m.react(emoji);
