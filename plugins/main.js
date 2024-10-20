@@ -236,7 +236,7 @@ cmd({
         for (let i = 0; i < commands.length; i++) {
             const cmd = commands[i];
             if (cmd.category.toUpperCase() === category) {
-                commandList += `┏━━━━━━━━━━━━━━━━━━━➤◍◉➤\n│ • *${cmd.pattern}* \n┗━━━━━━━━━━━━━━━━━━━━━━➤◍◉➤\n`;
+                commandList += `┏━━━━━━━━━━━━➤◍◉➤\n│ • *${cmd.pattern}* \n┗━━━━━━━━━━━━━━━━━━━━━━➤◍◉➤\n`;
             }
         }
 
