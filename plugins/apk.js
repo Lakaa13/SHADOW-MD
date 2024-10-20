@@ -64,7 +64,6 @@ let MNG = `\`𝗦𝗛𝗔𝗗𝗢𝗪 𝗠𝗗 𝗔𝗣𝗞 𝗗𝗢𝗪𝗡𝗟
 
 \`Apk name :\` ${q}
 
-
 `
 
 let opts = {
