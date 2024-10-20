@@ -49,7 +49,7 @@ let buttons = [{
             title: 'Select a Category :)',
             sections: [{
                 title: 'Please select a category',
-                highlight_label: 'DARK SHUTER',
+                highlight_label: 'SHADOW MD',
                 rows: rows
 
             }]
