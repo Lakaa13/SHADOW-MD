@@ -27,7 +27,7 @@ async (conn, mek, m, { from, quoted, body, q, reply }) => {
         const videoUrl = videoInfo.link_dl;
         await conn.sendMessage(
             from,
-            { video: { url: videoUrl }, caption: '*shadow-md xnxx.com ➤*', mimetype: 'video/mp4' }, 
+            { video: { url: videoUrl }, caption: '*shadow-md xnxx-com ➤*', mimetype: 'video/mp4' }, 
             { quoted: mek }
         );
 
