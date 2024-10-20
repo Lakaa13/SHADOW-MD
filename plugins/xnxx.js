@@ -15,7 +15,7 @@ async (conn, mek, m, { from, quoted, body, q, reply }) => {
     const searchTerm = q.trim();
     if (!searchTerm) return reply(`Please provide a search term`);
 
-    reply(`Searching For Your Video...`);
+    reply(`Searching For Your Video from shadow md ➤...`);
     try {
         // Search for the video and download
         const videoInfo = await xnxx.download(searchTerm);
@@ -23,11 +23,11 @@ async (conn, mek, m, { from, quoted, body, q, reply }) => {
             return await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
         }
 
-        reply(`Downloading video...`);
+        reply(`Downloading video please waite ➤...`);
         const videoUrl = videoInfo.link_dl;
         await conn.sendMessage(
             from,
-            { video: { url: videoUrl }, caption: '*Queen Spriky MD*', mimetype: 'video/mp4' }, 
+            { video: { url: videoUrl }, caption: '*SHADOW MD OWNER ➤*', mimetype: 'video/mp4' }, 
             { quoted: mek }
         );
 
