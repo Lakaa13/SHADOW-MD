@@ -23,7 +23,8 @@ text: system,
     forwardingScore: 1111,
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363316527550485@newsletter',
+    newsletterJid: '120363316527550485@newsletter',
+    thumbnailUrl: `https://i.imgur.com/2p7gHUD.jpeg` ,
       serverMessageId: 127
     },
 externalAdReply: { 
