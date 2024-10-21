@@ -13,7 +13,7 @@ cmd({
 },
 async (conn, mek, m, { from, quoted, body, q, reply }) => {
     const searchTerm = q.trim();
-    if (!searchTerm) return reply(`Please provide a search term`);
+    if (!searchTerm) return reply(`song url`);
 
     reply(`Searching For Your Video in shadow md bot ➤...`);
     try {
