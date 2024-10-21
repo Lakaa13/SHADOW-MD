@@ -52,7 +52,8 @@ async function dlyta(url) {
 
 cmd({
     pattern: "yta2",
-    react: "🍟",
+    alias: ["song2", "ytmp4", "ytsong", "lagu"],
+    react: "🎶",
     dontAddCommandList: true,
     filename: __filename
 },
