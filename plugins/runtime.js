@@ -31,6 +31,26 @@ id: ".system"
             body: status
         }
 return await conn.sendButtonMessage(from, buttons, m, opts)
+await conn.sendMessage(from, {
+text: system,
+  contextInfo: {
+    mentionedJid: [ '' ],
+    groupMentions: [],
+    forwardingScore: 1111,
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363316527550485@newsletter',
+      serverMessageId: 127
+    },
+externalAdReply: { 
+title: 'ꜱʜᴀᴅᴏᴡ ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ⚟',
+body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
+mediaType: 1,
+sourceUrl: "https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R" ,
+renderLargerThumbnail: true,
+showAdAttribution: false
+}
+}}, { quoted: mek})
     } catch (e) {
         reply('*Error !!*')
         console.log(e)
