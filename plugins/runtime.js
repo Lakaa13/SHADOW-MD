@@ -14,27 +14,24 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{ 
 
 let status =` *🚀 Runtime:-  ${runtime(process.uptime())}* `
-
-await conn.sendMessage(from, {
-text: system,
-  contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 1111,
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-    newsletterJid: '120363316527550485@newsletter',
-    thumbnailUrl: `https://i.imgur.com/2p7gHUD.jpeg` ,
-      serverMessageId: 127
-    },
-externalAdReply: { 
-title: 'ꜱʜᴀᴅᴏᴡ ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ⚟',
-body: 'ᴀ ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ',
-mediaType: 1,
-sourceUrl: "https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R" ,
-renderLargerThumbnail: true,
-showAdAttribution: false
+let buttons = [
+{
+name: "quick_reply",
+buttonParamsJson: JSON.stringify({
+display_text: 'BOT SYSTEM',
+id: ".system"
+}),
 }
+ ]
+
+        let opts = {
+            image: `https://i.imgur.com/NAK3YWD.jpeg`,
+            header: "RUNTIME TEST",
+            footer: config.FOOTER,
+            body: status
+        }
+return await conn.sendButtonMessage(from, buttons, m, opts)
+
 }}, { quoted: mek})
     } catch (e) {
         reply('*Error !!*')
