@@ -29,12 +29,12 @@ text: desc,
           isForwarded: true,
           forwardedNewsletterMessageInfo: {
           newsletterName: ' SHADOW-MD ',
-          newsletterJid: "1@newsletter",
+          newsletterJid: "120363290448968237@newsletter",
           },
           externalAdReply: {
               title: ` SHADOW`,
-              thumbnailUrl: ` Thumb Url `,
-              sourceUrl: ` Sorce url`,
+              thumbnailUrl: `https://i.imgur.com/2p7gHUD.jpeg`,
+              sourceUrl: `https://whatsapp.com/channel/0029Val6g7EBadmagKxuYi1R`,
               mediaType: 1,
               renderLargerThumbnail: true
               }
