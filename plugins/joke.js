@@ -22,6 +22,24 @@ async (conn, mek, m, { from, q, reply }) => {
 ${joke.punchline} 😄
 
 > ❯❯ ꜱʜᴀᴅᴏᴡ-ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ➣`;
+text: desc,
+          contextInfo: {
+
+          forwardingScore: 999,
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+          newsletterName: ' SHADOW-MD ',
+          newsletterJid: "1@newsletter",
+          },
+          externalAdReply: {
+              title: ` SHADOW`,
+              thumbnailUrl: ` Thumb Url `,
+              sourceUrl: ` Sorce url`,
+              mediaType: 1,
+              renderLargerThumbnail: true
+              }
+                  }
+              }, { quoted: mek });
 
         return reply(jokeMessage);
     } catch (e) {
