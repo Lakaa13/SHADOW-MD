@@ -30,24 +30,6 @@ id: ".system"
             footer: config.FOOTER,
             body: status
         }
-text: desc,
-          contextInfo: {
-
-          forwardingScore: 999,
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-          newsletterName: ' Shadow-md',
-          newsletterJid: "1@newsletter",
-          },
-          externalAdReply: {
-              title: ` bot wats app`,
-              thumbnailUrl: ` Thumb Url `,
-              sourceUrl: ` Sorce url`,
-              mediaType: 1,
-              renderLargerThumbnail: true
-              }
-                  }
-              }, { quoted: mek });
 return await conn.sendButtonMessage(from, buttons, m, opts)
     } catch (e) {
         reply('*Error !!*')
