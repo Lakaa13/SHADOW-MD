@@ -23,7 +23,7 @@ ${joke.punchline} 😄
 
 > ❯❯ ꜱʜᴀᴅᴏᴡ-ᴍᴅ ᴡᴀᴛꜱ ᴀᴘᴘ ʙᴏᴛ ➣`;
 text: desc,
-          contextInfo: {
+          contextInfo {
 
           forwardingScore: 999,
           isForwarded: true,
